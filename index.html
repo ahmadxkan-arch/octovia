@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octovia | Futuristic BSCS Portal - UST Bannu</title>
+  <meta name="description" content="Octovia - Futuristic Cyberpunk BSCS Dashboard, Course Curriculum, Prerequisite Roadmap & GPA Calculator for University of Science and Technology Bannu.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- ==========================================================================
+         LEFT SIDEBAR NAVIGATION
+         ========================================================================== -->
+    <aside class="sidebar">
+      <div>
+        <!-- Brand Header with Logo -->
+        <a href="#" class="sidebar-brand" id="brandHomeLink">
+          <div class="brand-hexagon-logo">
+            <img src="logo.jpg" alt="Octovia Logo">
+          </div>
+          <div class="brand-titles">
+            <span class="brand-title-main">OCTOVIA</span>
+            <span class="brand-title-sub">BSCS PORTAL • OPTION 1</span>
+          </div>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav class="sidebar-nav-group" aria-label="Sidebar Menu">
+          <button class="sidebar-nav-item active" data-view="dashboard">
+            <span class="nav-item-left">
+              <span class="nav-icon">📑</span>
+              Dashboard
+            </span>
+          </button>
+          <button class="sidebar-nav-item" data-view="courses">
+            <span class="nav-item-left">
+              <span class="nav-icon">📖</span>
+              Courses
+            </span>
+          </button>
+          <button class="sidebar-nav-item" data-view="assignments">
+            <span class="nav-item-left">
+              <span class="nav-icon">📋</span>
+              Assignments
+            </span>
+            <span class="sidebar-badge">4</span>
+          </button>
+          <button class="sidebar-nav-item" data-view="labs">
+            <span class="nav-item-left">
+              <span class="nav-icon">🧪</span>
+              Labs
+            </span>
+          </button>
+          <button class="sidebar-nav-item" data-view="resources">
+            <span class="nav-item-left">
+              <span class="nav-icon">📁</span>
+              Resources
+            </span>
+          </button>
+          <button class="sidebar-nav-item" data-view="grades">
+            <span class="nav-item-left">
+              <span class="nav-icon">📊</span>
+              Grades
+            </span>
+          </button>
+          <button class="sidebar-nav-item" data-view="schedule">
+            <span class="nav-item-left">
+              <span class="nav-icon">📅</span>
+              Schedule
+            </span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Secondary Links & Profile Card -->
+      <div>
+        <div class="sidebar-secondary-group">
+          <button class="sidebar-nav-item" data-view="settings">
+            <span class="nav-item-left">
+              <span class="nav-icon">⚙️</span>
+              Settings
+            </span>
+          </button>
+          <button class="sidebar-nav-item" data-view="support">
+            <span class="nav-item-left">
+              <span class="nav-icon">🎧</span>
+              Support
+            </span>
+          </button>
+        </div>
+
+        <!-- Student Profile Card -->
+        <div class="sidebar-profile-card">
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80" alt="Student Avatar" class="profile-avatar" id="userAvatar">
+          <div class="profile-info">
+            <span class="profile-name" id="sidebarProfileName">Ahmed Khan</span>
+            <span class="profile-role">BSCS • Semester 5</span>
+          </div>
+        </div>
+
+        <!-- Hacker Mode Status Indicator -->
+        <div class="sidebar-status-pill">
+          <div class="pulse-led"></div>
+          <span>Hacker Mode: ENABLED</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN CONTENT AREA
+         ========================================================================== -->
+    <main class="main-content">
+      <!-- Main Top Bar -->
+      <header class="main-topbar">
+        <div class="topbar-greeting">
+          <h1 id="topbarViewTitle">Dashboard</h1>
+          <p id="topbarGreetingSubtitle">Welcome back, Ahmed — here's your semester overview</p>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="globalSearchInput" placeholder="Search courses, assignments, labs...">
+          </div>
+          <button class="topbar-icon-btn" title="Notifications" id="btnNotifications">
+            🔔
+            <span class="icon-badge">1</span>
+          </button>
+          <button class="topbar-icon-btn" title="Quick Settings" id="btnQuickSettings">
+            ⚙️
+          </button>
+        </div>
+      </header>
+
+      <!-- ======================================================================
+           VIEW 1: DASHBOARD (CYBER DASHBOARD LIKE THE SCREENSHOT)
+           ====================================================================== -->
+      <div id="dashboardView" class="view-panel active">
+        <!-- Top 4 Metric KPI Cards -->
+        <section class="metrics-grid">
+          <!-- Card 1: Total Credits -->
+          <div class="metric-card glow-cyan-purple">
+            <div class="metric-header">
+              <div class="metric-icon-wrap cyan">🎓</div>
+              <span class="metric-title">Total Credits</span>
+            </div>
+            <div class="metric-value-wrap">
+              <div class="metric-value cyan-text" id="kpiTotalCredits">132</div>
+            </div>
+            <div class="metric-subtitle highlight">+6 this semester</div>
+          </div>
+
+          <!-- Card 2: CGPA -->
+          <div class="metric-card glow-purple">
+            <div class="metric-header">
+              <div class="metric-icon-wrap purple">📊</div>
+              <span class="metric-title">CGPA</span>
+            </div>
+            <div class="metric-value-wrap">
+              <div class="metric-value cyan-text" id="kpiCgpa">3.72</div>
+            </div>
+            <div class="metric-subtitle" style="color: #c084fc;">+0.12 • Dean's List</div>
+          </div>
+
+          <!-- Card 3: Pending Assignments -->
+          <div class="metric-card glow-blue">
+            <div class="metric-header">
+              <div class="metric-icon-wrap purple">📋</div>
+              <span class="metric-title">Pending Assignments</span>
+            </div>
+            <div class="metric-value-wrap">
+              <div class="metric-value purple-text">04</div>
+            </div>
+            <div class="metric-subtitle">Due in 2 days</div>
+          </div>
+
+          <!-- Card 4: Upcoming Lab -->
+          <div class="metric-card glow-cyan">
+            <div class="metric-header">
+              <div class="metric-icon-wrap purple">🧪</div>
+              <span class="metric-title">Upcoming Lab</span>
+            </div>
+            <div class="metric-value-wrap">
+              <div class="metric-value cyan-text" style="font-size: 1.15rem; font-weight: 700; padding: 0.35rem 0;">Data Structures Lab</div>
+            </div>
+            <div class="metric-subtitle highlight">Today • 3:00 PM • Lab 07</div>
+          </div>
+        </section>
+
+        <!-- Semesters Overview (8 Cards Grid) -->
+        <section>
+          <div class="section-header-row">
+            <h2 class="section-title-gradient">Semesters Overview</h2>
+            <button class="btn-view-all" id="btnViewAllSemesters">View All Semesters →</button>
+          </div>
+
+          <div class="semesters-dashboard-grid" id="dashboardSemestersGrid">
+            <!-- 8 Semester Cards dynamically rendered -->
+          </div>
+        </section>
+
+        <!-- Lower Dashboard Section (Skills In Progress & Activity Feed) -->
+        <section class="lower-dash-grid">
+          <!-- Skills in Progress -->
+          <div class="cyber-panel">
+            <h3 class="cyber-panel-title">
+              <span>⚡</span> Skills in Progress
+            </h3>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Data Structures &amp; Algorithms</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 80%;"></div>
+              </div>
+              <span class="skill-subnote">80% • Advanced</span>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Operating Systems</span>
+                <span class="skill-percent">60%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 60%;"></div>
+              </div>
+              <span class="skill-subnote">60% • Advanced</span>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Database Systems</span>
+                <span class="skill-percent">45%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 45%;"></div>
+              </div>
+              <span class="skill-subnote">45% • Relational Modeling &amp; SQL</span>
+            </div>
+          </div>
+
+          <!-- Activity Feed -->
+          <div class="cyber-panel glow-cyan-border">
+            <h3 class="cyber-panel-title">
+              <span>📡</span> Activity Feed
+            </h3>
+
+            <div class="activity-feed-list">
+              <div class="activity-item">
+                <div class="activity-dot green"></div>
+                <div class="activity-content">
+                  <span class="activity-title">Assignment submitted</span>
+                  <span class="activity-desc">CS-501: Linked List Implementation • 2h ago</span>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-dot blue"></div>
+                <div class="activity-content">
+                  <span class="activity-title">Lab graded</span>
+                  <span class="activity-desc">CS-502: Process Scheduling • 92% • 1d ago</span>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-dot cyan"></div>
+                <div class="activity-content">
+                  <span class="activity-title">New resource added</span>
+                  <span class="activity-desc">OS Lecture Notes.pdf • 2d ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Terminal Security Footer -->
+        <footer class="terminal-footer-bar">
+          <div class="terminal-security-status">
+            <span>🛡️ OCTOVIA BSCS PORTAL</span>
+            <span>•</span>
+            <span>v2.1.0</span>
+            <span>•</span>
+            <span>SECURE CONNECTION</span>
+          </div>
+          <div class="vpn-badge">
+            <div class="pulse-led"></div>
+            <span>VPN: ACTIVE</span>
+          </div>
+        </footer>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 2: COURSES & CURRICULUM
+           ====================================================================== -->
+      <div id="coursesView" class="view-panel">
+        <div class="cyber-control-bar">
+          <div class="category-chips-row" id="cyberCategoryChips">
+            <button class="cyber-chip active" data-cat="all">All Categories</button>
+            <button class="cyber-chip" data-cat="CC"><span class="chip-dot dot-cc"></span>Computing Core (14)</button>
+            <button class="cyber-chip" data-cat="DC"><span class="chip-dot dot-dc"></span>Domain Core (6)</button>
+            <button class="cyber-chip" data-cat="DE"><span class="chip-dot dot-de"></span>Electives (8)</button>
+            <button class="cyber-chip" data-cat="GE"><span class="chip-dot dot-ge"></span>General Ed (12)</button>
+            <button class="cyber-chip" data-cat="MS"><span class="chip-dot dot-ms"></span>Math &amp; Science (4)</button>
+            <button class="cyber-chip" data-cat="ES"><span class="chip-dot dot-es"></span>Economics (1)</button>
+            <button class="cyber-chip" data-cat="NC"><span class="chip-dot dot-nc"></span>Non-Credit (2)</button>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 0.5rem;" id="coursesSemesterFilterBtns">
+              <button class="cyber-chip active" data-sem="all">All Semesters</button>
+              <button class="cyber-chip" data-sem="1">Sem 1</button>
+              <button class="cyber-chip" data-sem="2">Sem 2</button>
+              <button class="cyber-chip" data-sem="3">Sem 3</button>
+              <button class="cyber-chip" data-sem="4">Sem 4</button>
+              <button class="cyber-chip" data-sem="5">Sem 5</button>
+              <button class="cyber-chip" data-sem="6">Sem 6</button>
+              <button class="cyber-chip" data-sem="7">Sem 7</button>
+              <button class="cyber-chip" data-sem="8">Sem 8</button>
+            </div>
+            <button class="cyber-chip" id="cyberLabToggle">🧪 Labs Only</button>
+          </div>
+        </div>
+
+        <div class="cyber-course-grid" id="cyberCourseCardsContainer">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 3: ASSIGNMENTS
+           ====================================================================== -->
+      <div id="assignmentsView" class="view-panel">
+        <div class="cyber-panel">
+          <h2 class="section-title-gradient" style="margin-bottom: 1.25rem;">Pending Assignments &amp; Projects</h2>
+          <div class="activity-feed-list" id="assignmentsListContainer">
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <div class="activity-dot green"></div>
+              <div class="activity-content" style="flex-grow: 1;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span class="activity-title">CC-353: Divide and Conquer Algorithms Analysis</span>
+                  <span class="status-pill in-progress">Due in 2 days</span>
+                </div>
+                <span class="activity-desc">Implement Strassen's matrix multiplication and master theorem proof • USTB CS Dept</span>
+              </div>
+            </div>
+
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <div class="activity-dot blue"></div>
+              <div class="activity-content" style="flex-grow: 1;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span class="activity-title">DE-354: Android SQLite &amp; Room Database</span>
+                  <span class="status-pill in-progress">Due in 5 days</span>
+                </div>
+                <span class="activity-desc">Build a student records mobile app with offline SQLite sync and RecyclerView</span>
+              </div>
+            </div>
+
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <div class="activity-dot cyan"></div>
+              <div class="activity-content" style="flex-grow: 1;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span class="activity-title">DC-352: Lexical Analyzer using Lex/Flex</span>
+                  <span class="status-pill in-progress">Due in 1 week</span>
+                </div>
+                <span class="activity-desc">Tokenize keywords, identifiers, and relational operators in C compiler front-end</span>
+              </div>
+            </div>
+
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <div class="activity-dot cyan"></div>
+              <div class="activity-content" style="flex-grow: 1;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span class="activity-title">DC-355: B-Tree Indexing and Query Execution Plans</span>
+                  <span class="status-pill completed">Completed</span>
+                </div>
+                <span class="activity-desc">Submitted to UST Bannu Portal • Graded: 95/100</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 4: LABS
+           ====================================================================== -->
+      <div id="labsView" class="view-panel">
+        <div class="cyber-panel">
+          <h2 class="section-title-gradient" style="margin-bottom: 0.5rem;">BSCS Practical Laboratories (13 Labs)</h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">University of Science and Technology, Bannu • Hands-on Lab Courses (1 Credit / 3 Contact Hours)</p>
+          <div class="cyber-course-grid" id="labsGridContainer">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 5: GRADES & GPA CALCULATOR
+           ====================================================================== -->
+      <div id="gradesView" class="view-panel">
+        <div class="cyber-calc-grid">
+          <div class="cyber-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <h2 class="section-title-gradient">HEC Semester GPA Calculator</h2>
+              <select id="gradesSemesterSelect" class="cyber-select">
+                <option value="1">Semester 1 (18 CH)</option>
+                <option value="2">Semester 2 (18 CH)</option>
+                <option value="3">Semester 3 (18 CH)</option>
+                <option value="4">Semester 4 (18 CH)</option>
+                <option value="5" selected>Semester 5 (18 CH)</option>
+                <option value="6">Semester 6 (15 CH)</option>
+                <option value="7">Semester 7 (15 CH)</option>
+                <option value="8">Semester 8 (12 CH)</option>
+              </select>
+            </div>
+
+            <table class="cyber-calc-table">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Course Title</th>
+                  <th>Credits</th>
+                  <th>Grade</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody id="gradesTableBody">
+                <!-- Injected via app.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Summary Card -->
+          <div class="cyber-panel glow-cyan-border" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Academic Performance</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">UST Bannu Official 4.0 Scale</p>
+            </div>
+
+            <div style="text-align: center; padding: 2rem 0;">
+              <div style="font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 20px rgba(0, 210, 255, 0.6);" id="calcGpaScore">3.72</div>
+              <div style="font-size: 0.82rem; color: #c084fc; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-top: 0.25rem;">Semester GPA</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.84rem;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding-bottom: 0.4rem;">
+                <span style="color: var(--text-muted);">Total Quality Points:</span>
+                <strong style="color: #fff;" id="calcTotalPointsScore">66.96</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding-bottom: 0.4rem;">
+                <span style="color: var(--text-muted);">Credit Hours Registered:</span>
+                <strong style="color: #fff;" id="calcTotalCreditsScore">18 CH</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-muted);">Academic Standing:</span>
+                <strong style="color: var(--neon-green);" id="calcStandingScore">Dean's Honor Roll</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 6: RESOURCES & PREREQUISITES
+           ====================================================================== -->
+      <div id="resourcesView" class="view-panel">
+        <div class="cyber-panel">
+          <h2 class="section-title-gradient" style="margin-bottom: 1rem;">Curriculum Prerequisite Dependency Map</h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Visual prerequisite pathways across the 8 BSCS semesters at University of Science and Technology, Bannu.</p>
+          <div class="cyber-course-grid" id="prereqFlowContainer">
+            <!-- Dynamic flow cards -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 7: SCHEDULE
+           ====================================================================== -->
+      <div id="scheduleView" class="view-panel">
+        <div class="cyber-panel">
+          <h2 class="section-title-gradient" style="margin-bottom: 1rem;">Weekly Class &amp; Lab Schedule</h2>
+          <div class="activity-feed-list">
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md);">
+              <div class="activity-dot cyan"></div>
+              <div class="activity-content">
+                <span class="activity-title">Monday • 09:00 AM – 10:30 AM</span>
+                <span class="activity-desc">CC-353: Analysis of Algorithms • CS Lecture Hall 2</span>
+              </div>
+            </div>
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md);">
+              <div class="activity-dot purple"></div>
+              <div class="activity-content">
+                <span class="activity-title">Monday • 11:00 AM – 12:30 PM</span>
+                <span class="activity-desc">DC-352: Compiler Construction • CS Lecture Hall 1</span>
+              </div>
+            </div>
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md);">
+              <div class="activity-dot green"></div>
+              <div class="activity-content">
+                <span class="activity-title">Tuesday • 02:00 PM – 05:00 PM (Lab)</span>
+                <span class="activity-desc">DE-354: Mobile Application Development Lab • Software Lab 03</span>
+              </div>
+            </div>
+            <div class="activity-item" style="padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md);">
+              <div class="activity-dot blue"></div>
+              <div class="activity-content">
+                <span class="activity-title">Wednesday • 03:00 PM – 06:00 PM (Lab)</span>
+                <span class="activity-desc">DC-355: Advance Database Management Systems Lab • Database Lab 01</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 8: SETTINGS & SUPPORT
+           ====================================================================== -->
+      <div id="settingsView" class="view-panel">
+        <div class="cyber-panel" style="max-width: 600px;">
+          <h2 class="section-title-gradient" style="margin-bottom: 1.5rem;">Portal Settings</h2>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <label style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Student Name</label>
+              <input type="text" id="settingStudentName" class="search-box" style="width: 100%;" value="Ahmed Khan">
+            </div>
+            <div>
+              <label style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Active Semester</label>
+              <select id="settingCurrentSemester" class="cyber-select" style="width: 100%;">
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5" selected>Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+              </select>
+            </div>
+            <button class="btn-view-all" id="btnSaveSettings" style="width: fit-content;">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="courses.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
